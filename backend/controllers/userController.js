@@ -85,3 +85,18 @@ export const getProfile = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+export const getAllUsers = async (req,res) => {
+    try {
+        const users = await User.find({}).select("-password")
+        if(!users){
+            return res.status(400).json({message:"No Users Found"})
+        }
+        const filteredUsers = users.filter(user =>user._id.toString() !== req._id.toString())
+        return res.status(200).json(filteredUsers)
+        
+    }
+    catch(error){
+        return res.status(500).json({message:error.message})
+    }
+}

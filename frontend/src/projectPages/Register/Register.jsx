@@ -1,0 +1,139 @@
+import { Loader2 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Upload, Button } from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import './Register.css'
+import React from "react";
+// import { useRegisterMutation } from "../../redux/features/userApiSlice.js";
+// import { toast } from "sonner"
+
+const Signup = () => {
+  const loading = false;
+ 
+  return (
+    <div class="flex items-center h-screen bg-white  ">
+      <div className=" w-auto h-[500px] md:grid grid-cols-2"></div>
+      <div class="w-[450px] h-[500px] border-y-gray-200   flex  flex-col items-center justify-center shadow-xl rounded-lg mx-auto">
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6 ">
+          Sign Up
+        </h2>
+        <form   className="mb-2">
+          <div className="mb-3">
+            <label
+              htmlFor="fullName"
+              className="text-sm font-medium text-gray-700"
+            >
+              Fullname
+            </label>
+            <input
+              type="name"
+              id="fullName"
+              name="fullName"
+              
+            
+              className="mt-1 w-full rounded-md shadow-sm"
+              placeholder="Enter your FullName"
+            />
+          </div>
+          <div className="mb-3">
+            <label
+              htmlFor="email"
+              className="text-sm font-medium text-gray-700"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              className="mt-1 w-full rounded-md shadow-sm"
+              placeholder="Enter your Mail"
+            />
+          </div>
+          <div className="mb-3">
+            <label
+              htmlFor="password"
+              className="text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+            
+              className="mt-1 w-full rounded-md shadow-sm"
+              placeholder="Enter your Password"
+            />
+          </div>
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <label
+                htmlFor="gender"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Gender
+              </label>
+              <select
+                id="gender"
+                name="gender"
+               
+                className="mt-1 block w-full px-1  border border-gray-300 rounded-md shadow-sm "
+                required
+              >
+                <option className="text-sm" value="">
+                  Select your Gender
+                </option>
+                <option className="text-sm" value="male">
+                  Male
+                </option>
+                <option className="text-sm" value="female">
+                  Female
+                </option>
+                <option className="text-sm" value="Other">
+                  Other
+                </option>
+              </select>
+            </div>
+
+            <div className="mt-auto">
+              <Upload style={{ height: "25px" }} 
+                beforeUpload={() => false} // Prevent automatic upload
+                accept="image/*"
+                showUploadList={true}>
+                  
+                <Button
+                  icon={<UploadOutlined />}
+                  style={{ height: "25px", lineHeight: "25px" }}
+                >
+                  Upload Profile Image
+                </Button>
+              </Upload>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full flex items-center justify-center bg-[#54a3f8] hover:bg-[rgb(105,128,187)] mt-8 rounded-sm"
+          >
+            {loading ? (
+              <>
+                <Loader2 className="animate-spin" />
+              </>
+            ) : (
+              <>Sign Up</>
+            )}
+          </button>
+          <p className="text-center text-sm mt-5 mb-4">
+            <span>Already have an Account?</span>{" "}
+            <span className="text-sky-500">
+              <Link to="">Login</Link>
+            </span>
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;
