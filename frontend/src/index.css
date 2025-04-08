@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+body{
+    background-image: url('https://img.freepik.com/free-vector/winter-light-blue-gradient-vector-background_53876-128352.jpg?t=st=1744046001~exp=1744049601~hmac=a5a684d5ec8afecb585c3ce7543d8d431fbf45ef3e2fdf1b04c15ed06faeab6d&w=1480');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
